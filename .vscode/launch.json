@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: FastAPI App",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "ocr-api-service:app",
+                "--reload",
+                "--port",
+                "5001",
+                "--log-level",
+                "debug"
+            ],
+            "jinja": true
+        }
+    ]
+}
