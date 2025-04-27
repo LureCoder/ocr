@@ -4,6 +4,7 @@ from paddleocr import PaddleOCR
 import base64
 import io
 from PIL import Image
+import numpy as np
 
 app = FastAPI()
 # 初始化 PaddleOCR
@@ -28,10 +29,11 @@ def ocr_api(body: OCRRequest):
             image = image.convert("RGB")
 
 
-        image.save('temp_image.jpg', format="JPEG")
+        #image.save('temp_image.jpg', format="JPEG")
+        image_np = np.array(image)
 
         # Perform OCR
-        result = ocr.ocr('temp_image.jpg', cls=True)
+        result = ocr.ocr(image_np, cls=True)
         text = [line[1][0] for line in result[0]]
 
         return {"text": text}

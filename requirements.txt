@@ -1,4 +1,5 @@
-flask
+fastapi
 paddlepaddle
 paddleocr
 pillow
+pydantic
